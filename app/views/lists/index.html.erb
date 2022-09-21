@@ -1,0 +1,8 @@
+<% @lists.each do |list| %>
+  <div class="card">
+    <%= link_to list.name, list_path(list) %>
+  </div>
+
+<% end %>
+
+<%= link_to "Create List", new_list_path, class: "btn btn-primary" %>
