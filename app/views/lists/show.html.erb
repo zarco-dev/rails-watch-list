@@ -1,5 +1,7 @@
 <h1>Lista:</h1>
-<p><%= @list.name %> <span class="movie-tag"><%= pluralize(@list.movies.size, "movie") %></span></p>
+<div class="card-category p-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>'); background-repeat: no-repeat; height: 350px; background-size: cover; background-position: center">
+<p class="btn btn-warning"><%= @list.name %> (<span class="movie-tag"><%= pluralize(@list.movies.size, "movie") %></span>)</p>
+</div>
 <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
 <% @list.movies.each do |movie| %>
 <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>

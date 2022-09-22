@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+require "open-uri"
+
+
 puts "Creando el seed para Movie"
 Movie.destroy_all
 
@@ -14,8 +18,16 @@ Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s f
 Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic.", poster_url: "https://image.tmdb.org/t/p/original/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg", rating: 7.9)
 Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
-
-List.create!(name: "Drama")
-List.create!(name: "Terror")
-List.create!(name: "Comedy")
-List.create!(name: "Zombies")
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+list1 = List.new(name: "Drama")
+list1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+list1.save
+list2 = List.new(name: "Terror")
+list2.photo.attach(io: file, filename: "nes1.png", content_type: "image/png")
+list2.save
+list3 = List.new(name: "Comedy")
+list3.photo.attach(io: file, filename: "ne2.png", content_type: "image/png")
+list3.save
+list4 = List.new(name: "Zombies")
+list4.photo.attach(io: file, filename: "fe.png", content_type: "image/png")
+list4.save
